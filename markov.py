@@ -45,17 +45,29 @@ def get_model(data):
 def get_start(model):
     return model["."].get_random_word();
 
-def get_sentence(model, length):
+def get_sentence(model, max_length = 70):
     curr = get_start(model)
-    res = [curr]
-    for i in range(0, length - 1):
-        curr = model[curr].get_random_word()
-        res.append(curr)
-    return " ".join(res)
+    res = str(curr)
+    next = model[curr].get_random_word()
+    while len(res + " " + next) < max_length:
+        res += " " + next
+        curr = next
+        next = model[curr].get_random_word()
+    return res.replace(" .", ".")
+
+def validate_data(data):
+    val = str(data).strip()
+    if val[len(val) - 1] != ".":
+        val += "."
+    val = val.replace(".", " .")
+    val = ". " + val
+    return val.split(" ")
 
 
-model = get_model([".", "one",".", "two", "three", "two", "one", "two", "one"])
-print(model)
-print(get_sentence(model, 5))
+#text = "Hello guys from world. This very interesting it is very not interesting bich. Vot tak vot hello from"
+#print(validate_data(text))
+#model = get_model(validate_data(text))
+#print(model)
+#print(get_sentence(model))
 
         
