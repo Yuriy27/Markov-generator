@@ -1,5 +1,6 @@
 from markov import MarkovSerice
 from flask import Flask, request, jsonify, abort
+import os
 
 app = Flask(__name__)
 
@@ -21,4 +22,20 @@ def markov():
     else:
         resp = markov_service.generate_text(model_data)
     return jsonify(resp)
+
+@app.route('/api/markov/upload', methods=['POST'])
+def upload():
+    if 'file_data' not in request.files:
+        abort(400, '{file_data} not found')
+    file = request.files['file_data']
+    path = '/home/yuriy27/dev/python/markov'
+    f_name = file.filename
+    file.save(os.path.join(path, f_name))
+    file.close()
+    file = open(path + '/' + f_name, mode='r')
+    resp = file.read()
+    file.close()
+    return jsonify(resp)
+
+
 
