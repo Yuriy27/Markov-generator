@@ -1,6 +1,9 @@
-from markov import *
+from markov import MarkovSerice
 from flask import Flask, request, jsonify, abort
+
 app = Flask(__name__)
+
+markov_service = MarkovSerice()
 
 @app.route('/')
 def hello():
@@ -12,7 +15,10 @@ def markov():
     if 'model_data' not in req_data:
         abort(400, 'Field {model_data} not found')
     model_data = req_data['model_data']
+    resp = None
     if 'max_length' in req_data:
-        return jsonify(generate_text(model_data, int(req_data['max_length'])))
-    return jsonify(generate_text(model_data))
+        resp = markov_service.generate_text(model_data, int(req_data['max_length']))
+    else:
+        resp = markov_service.generate_text(model_data)
+    return jsonify(resp)
 
