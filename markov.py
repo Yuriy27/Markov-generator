@@ -45,7 +45,7 @@ def get_model(data):
 def get_start(model):
     return model["."].get_random_word();
 
-def get_sentence(model, max_length = 70):
+def get_sentence(model, max_length):
     curr = get_start(model)
     res = str(curr)
     next = model[curr].get_random_word()
@@ -63,7 +63,8 @@ def validate_data(data):
     val = ". " + val
     return val.split(" ")
 
-
+def generate_text(data, max_length = 70):
+    return get_sentence(get_model(validate_data(data)), max_length)
 #text = "Hello guys from world. This very interesting it is very not interesting bich. Vot tak vot hello from"
 #print(validate_data(text))
 #model = get_model(validate_data(text))
