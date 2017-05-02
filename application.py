@@ -28,12 +28,16 @@ def upload():
     if 'file_data' not in request.files:
         abort(400, '{file_data} not found')
     file = request.files['file_data']
-    path = '/home/yuriy27/dev/python/markov'
+    path = '/home/yuriy27/dev/python/markov/uploads'
     f_name = file.filename
     file.save(os.path.join(path, f_name))
     file.close()
     file = open(path + '/' + f_name, mode='r')
-    resp = file.read()
+    resp = None
+    if 'max_length' in request.form:
+        resp = markov_service.generate_text(file.read(), int(request.form['max_length']))
+    else:
+        resp = markov_service.generate_text(file.read())
     file.close()
     return jsonify(resp)
 
