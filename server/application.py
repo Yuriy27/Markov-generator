@@ -21,7 +21,10 @@ def markov():
         resp = markov_service.generate_text(model_data, int(req_data['max_length']))
     else:
         resp = markov_service.generate_text(model_data)
-    return jsonify(resp)
+    print(resp)
+    re = dict()
+    re['text'] = resp
+    return jsonify(re)
 
 @app.route('/api/markov/upload', methods=['POST'])
 def upload():

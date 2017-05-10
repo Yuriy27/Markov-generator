@@ -1,0 +1,11 @@
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\bin\Debug\MarkovGui.exe.config
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\bin\Debug\MarkovGui.exe
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\bin\Debug\MarkovGui.pdb
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\obj\Debug\MarkovGui.Form1.resources
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\obj\Debug\MarkovGui.Properties.Resources.resources
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\obj\Debug\MarkovGui.csproj.GenerateResource.Cache
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\obj\Debug\MarkovGui.exe
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\obj\Debug\MarkovGui.pdb
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\obj\Debug\MarkovGui.csprojResolveAssemblyReference.cache
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\bin\Debug\Newtonsoft.Json.dll
+F:\projects\python\markov_gui\MarkovGui\MarkovGui\bin\Debug\Newtonsoft.Json.xml
